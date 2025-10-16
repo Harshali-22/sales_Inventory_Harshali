@@ -167,7 +167,7 @@ public class AddProductTest extends AdminBaseClass{
 			AddProductPage app1=new AddProductPage(driver);
 			app1.getProductColoumn().click();
 			
-			
+			System.out.println("sample for gitbash");
 		}
 		
 		
