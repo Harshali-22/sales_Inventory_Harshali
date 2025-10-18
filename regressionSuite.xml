@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<groups>
+		<run>
+	  	  <include name="regression"/>
+		</run>
+	  </groups>
+  <listeners>
+	 <listener class-name="com.client.Sales_Inventory.ListenerUtility.ListenerImpClass"></listener>
+  </listeners>
+  
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.client.SalesInventory.Addproduct.AddProductTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
