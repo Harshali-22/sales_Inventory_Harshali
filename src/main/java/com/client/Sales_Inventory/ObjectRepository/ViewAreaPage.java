@@ -2,15 +2,16 @@ package com.client.Sales_Inventory.ObjectRepository;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ManageAreaPage {
+public class ViewAreaPage {
 
 	WebDriver driver;
-	public ManageAreaPage(WebDriver driver) {
+	public ViewAreaPage(WebDriver driver) {
 	this.driver=driver;
 	PageFactory.initElements(driver, this);
 	}
@@ -25,4 +26,26 @@ public class ManageAreaPage {
 	
 	@FindBy(xpath = "//a[contains(@href,'edit')]")
 	private List<WebElement> allEditBtns;
+	
+	public WebElement getArea(String areaName) {
+		WebElement area=driver.findElement(By.xpath("//table[@class='table_displayData']//td[text()=' "+areaName+" ']"));
+		return area;
+	}
+	public WebElement getAddAreaBtn() {
+		return addAreaBtn;
+	}
+
+	public WebElement getDeleteBtn() {
+		return deleteBtn;
+	}
+
+	public List<WebElement> getCheckBoxes() {
+		return checkBoxes;
+	}
+
+	public List<WebElement> getAllEditBtns() {
+		return allEditBtns;
+	}
+	
+	
 }
