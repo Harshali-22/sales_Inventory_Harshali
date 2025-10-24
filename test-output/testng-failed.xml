@@ -5,9 +5,10 @@
     <classes>
       <class name="com.client.SalesInventory.ManageArea.ManageArea">
         <methods>
+          <include name="verifyAddAreaInAddRetailer"/>
           <include name="verifyAddAreaWithValidData"/>
-          <include name="beforeSuitConfigMethod"/>
           <include name="beforeClassConfigMethod"/>
+          <include name="beforeSuitConfigMethod"/>
           <include name="configBM"/>
           <include name="configAM"/>
           <include name="afterClassConfigMethod"/>

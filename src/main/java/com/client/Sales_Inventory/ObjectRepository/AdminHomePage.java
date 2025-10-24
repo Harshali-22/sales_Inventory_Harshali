@@ -47,6 +47,12 @@ public class AdminHomePage {
 	@FindBy(linkText = "Manage Area")
 	private WebElement manageAreaLink;
 	
+	@FindBy (linkText = "Add Retailers")
+	private WebElement addRetailerLink;
+	
+	public WebElement getAddRetailerLink() {
+		return addRetailerLink;
+	}
 	public WebElement getManageAreaLink() {
 		return manageAreaLink;
 	}

@@ -1,14 +1,17 @@
 package com.client.SalesInventory.ManageArea;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.client.Sales_Inventory.BaseUtility.AdminBaseClass;
+import com.client.Sales_Inventory.ObjectRepository.AddRetailerPageInAdmin;
 import com.client.Sales_Inventory.ObjectRepository.Add_AreaUnitPage;
 import com.client.Sales_Inventory.ObjectRepository.AdminHomePage;
 import com.client.Sales_Inventory.ObjectRepository.ViewAreaPage;
@@ -45,4 +48,22 @@ public class ManageArea extends AdminBaseClass {
 		Assert.assertEquals(flag, true);
 	}
 
+	@Test(dependsOnMethods = "verifyAddAreaWithValidData", groups="system")
+	public void verifyAddAreaInAddRetailer() throws EncryptedDocumentException, IOException {
+		AdminHomePage ahp=new AdminHomePage(driver);
+		AddRetailerPageInAdmin arp=new AddRetailerPageInAdmin(driver);
+		ExcelUtility eLib=new ExcelUtility();
+		String areaName=eLib.getDataFromExcel("area", 1, 0);
+		ahp.getAddRetailerLink().click();
+		boolean flag=false;
+		List<WebElement> areas=arp.getAllAreas();
+		for(WebElement area:areas) {
+			String actualArea=area.getText();
+			System.out.println(actualArea);
+			if(actualArea.contains(areaName)) {
+				flag=true;
+			}
+		}
+		Assert.assertEquals(flag, true);
+	}
 }

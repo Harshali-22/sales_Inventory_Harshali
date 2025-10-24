@@ -16,13 +16,13 @@ public class WebDriverUtility {
 		Select sel = new Select(element);
 		sel.selectByIndex(index);
 	}
-
-	/**
-	 * @author Harshali
-	 */
 	public void select(WebElement element, String visibletext) {
 		Select sel = new Select(element);
 		sel.selectByVisibleText(visibletext);
+	}
+	public void selectByPartialText(WebElement element, String partialText) {
+		Select sel=new Select(element);
+		sel.selectByContainsVisibleText(partialText);
 	}
 	public void scroll(WebDriver driver, WebElement element) {
 		Actions act=new Actions(driver);
